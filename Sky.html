@@ -1,416 +1,1015 @@
 <!DOCTYPE html>
 <html>
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width,initial-scale=1">
- <title>Bùi_Biên</title>
- <style>
-
-*{
-vertical-align: middle;
-align-items: center;
-justify-content: center;
-color: rgba(255,255,255);
--webkit-appearance: none;
--webkit-user-select: none;
-font-family: Arial, sans-serif;
-font-size: 12px;
+<title>By.Ark</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ 
+     <script>
+setButtonImage("https://discord.com/channels/860023810492727316/860316884779270174/1010038666451767297");
+</script>
+  
+ 
+<style type="text/css">
+* {
+    /*MÀU VĂN BẢN MẶC ĐỊNH*/
+    
+    color: #d900ff;
+    font-size: 13px;
+    font-family: Arial, sans-serif;
+   user-select:none
+}
+  html{
+    zoom:0.8
+     
+}
+body{
+    
+    background-color: transparent;
 }
 
-#ESPcanvas{
-pointer-events: none;
-z-index: -1;
-background-color: rgba(0,255,0,0);
-height: 100%;
-width: 100%;
-position: fixed;
-top: 0px;
-left: 0px;
+#H5AlertView {
+              user-select: none;
+            border: 1px dashed red;
+            background: #000; /**/
+  }
+#title-img{
+    position: relative;
+    z-index:1;
+  background-color:#e2e2e2;
 }
 
-#Mainmenu{
-background-color: rgba(0 191 255);
-height: 300px;
-width: 450px;
-position: fixed;
-top: 20px;
-left: calc(100% - 450px - 30px);
-border-radius: 15px;
-border: 1px solid white;
-overflow: hidden;
+#title-text{
+    padding-top:10px;
+    font-size:20px;
+    color: red;
 }
 
-#TitleBar{
-text-align: center;
-font-family: Menlo, monospace;
-background-color: rgba(0 191 255);
-color: rgba(0 0 0);
-}
-#TabBar{
-margin-top: 3px;
-display: flex;
-border-bottom: 1px solid rgba(255,255,255);
+#info-text{
+ user-select:none 
+    padding:10px;
+    color:#494949;
 }
 
-
-.TabButton{
-width: 20%;
-background-color: rgba(200,200,200,0.6);
-color: rgba(0,0,0);
-border-radius: 7px 7px 0px 0px;
-text-align: center;
+#content-view{
+    z-index:0;
+    background: white;
+    position: relative;
+    top: 20px;
+  user-select:none
+    
+    border: 1px solid transparent;
+    border-radius:5px;
+    padding: 10px;
+background-image: url(https://cdn.discordapp.com/attachments/1009523903477068039/1009683303101632522/IMG_1727.gif);
 }
 
-.Tab{
-display: none;
+button {
+    width: 100%;
+    height: 200px;
+    color: #fff;
+    background-color: #909090;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    padding: 0 8px;
+    margin: 5px 0;
+    font-size:15px;
+  border-color:#909090;
 }
 
-.Scroll{
-white-space: nowrap;
-height: calc(100% - 47px);
-width: 100%;
-overflow-x: hidden;
-overflow-y: scroll;
+button:active {
+    background-color: white;
+    transform: translateY(2px);
 }
 
-input[type=button]{
-color: rgba(255,255,255);
-margin: 2.5px 2.5px;
-border-radius: 5px;
-border: 1px solid rgba(255,255,255,0.7);
-width: 80px;
-height: 20px;
-background-color: rgba(200,200,200,0.4);
+
+  input[type=range] {
+  -webkit-appearance: none;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  height:  9px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: #e2e2e2;
+  border-radius: 12px;
+  border: 0px solid #010101;
 }
 
-label input {
-position: absolute;
-opacity: 0;
+  input {
+      -webkit-appearance: none;
+    background-color: rgba(0,0,0,0);
+    border-color: #e2e2e2;
+    height: 15px;
+    margin-top: 1px;
+    line-height:1px;
+    vertical-align: middle;
+    outline:none;
+    
+    
+   
+  }
+    
 }
-
-label {
-position: relative;
-padding: 3px 0px 0px 25px;
-line-height: 25px;
+    
+input[type=checkbox]{
+    -webkit-appearance: none;
+ visibility: hidden;
+ vertical-align:middle; margin-bottom:2px;
+ cursor: pointer;
+ position: relative;
+ width: 50px;
+ height: 50px;
+  line-height:1px;
+  vertical-align: middle;
 }
-
-.checkmark {
-position: absolute;
-top: 0;
-left: 0;
-height: 20px;
-width: 20px;
-background-color: rgba(200,200,200,0.4);
-border: 1px solid rgba(255,255,255,0.7);
+  input[type=checkbox]::after{
+ position: absolute;
+ top: 0;
+ margin-top:2px;
+ width: 14px; height: 14px;
+ border: 1px solid transparent;
+ border-radius: 3px;
+ background-color: rgba(0,0,0,0);
+ display: inline-block;
+ visibility: visible;
+ text-align: center;
+ content: ' ';
 }
-
-label input:checked ~ .checkmark:after {
-content: "";
-position: absolute;
-display: block;
-left: 6px;
-top: 1px;
-width: 7px;
-height: 12px;
-border: solid rgba(255,255,255,0.7);
-border-width: 0px 2px 2px 0px;
-transform: rotate(45deg);
+details summary::before{
+  color: red;
+     height:10px;
+    width:10px;
+ 
+  }
+  summary{
+    color:#000
+    outline:0;
+    background-color:#e2e2e2;
+    border-radius:5px;
+    border-color:#000;
+  }
+  summary::before
+   height:9px;
+   width:10px;
+  color:#fff;
+  border-color:#000;
 }
+  input[type=botton]{
+   width:3px;
+   height:5px;
+   color:#000;
+   
+  }
 
-input[type=range] {
--webkit-appearance: none;
-height: 20px;
-width: 150px;
-border-radius: 2px;
-background: rgba(200,200,200,0.4);
-border: 1px solid rgba(255,255,255,0.7);
+
+details summary::before{
+     height:10px;
+    width:10px;
+  }
+  summary{
+    outline:0;
+  }
+  summary::before
+   height:9px;
+   width:10px;
 }
-
-input[type=range]::-webkit-slider-thumb {
-height: 20px;
-border: 0px;
-border-radius: 2px;
--webkit-appearance: none;
-height: 20px;
-width: 15px;
-background: rgba(255,255,255,0.7);
+  
+  input[type=text]{
+height:14px;
+  background-color:#fff;
+   
 }
+  input[type=text] ::-webkit-text-fill-color:#fff;
+       .el-scrollbar .el-scrollbar__bar {
+height:14px;
+            opacity: 1 !important;
+        }
+  input[type=range]::-webkit-slider-thumb {
+    width: 20px;	height: 20px;
+border-radius:35%;
+    background-color:#fff;
+border-color:#d900ff;
+  
+  background: #fff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -7px;
+  }
+  .switch-btn {
+  cursor: pointer;
+  width: 45px;
+  height: 28px;
+  position: relative;
+  border: 1px solid #dfdfdf;
+  background-color: #fdfdfd;
+  box-shadow: #dfdfdf 0 0 0 0 inset;
+  border-radius: 15px;
+  background-clip: content-box;
+  display: inline-block;
+  -webkit-appearance: none;
+  user-select: none;
+  outline: none; 
+}
+.switch-btn:before {
+    content: '';
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 20px;
+    background-color: #d900ff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .4); 
+}
+.switch-btn:checked {
+    border-color: #d900ff;
+    box-shadow: #00ff33 16px inset;
+    background-color: #22ff00; 
+}
+.switch-btn:checked:before {
+    left: 18px; 
+}
+.switch-btn.switch-btn-animbg {
+    transition: background-color ease .4s; 
+}
+.switch-btn.switch-btn-animbg:before {
+    transition: left .3s; 
+}
+.switch-btn.switch-btn-animbg:checked {
+    box-shadow: #dfdfdf 0 0 0 0 inset;
+    background-color: white;
+    transition: border-color .4s, background-color ease .4s; 
+}
+.switch-btn.switch-btn-animbg:checked:before {
+    transition: left .3s; 
+}
+  /* FULL THANH CUỘN */
 
- </style>
+.scrollbar {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.scrollbar::-webkit-scrollbar {
+    width: 0px; /* CHIỀU RỘNG THANH CUỘN DỌC */
+    height: 5px;/* CHIỀU CAO THANH CUỘN NGANG */
+    background-color: #F5F5F5; /* MÀU NỀN CUỘN，一PHỦ */
+}
+/* THANH CUỘN THEO DÕI（CHUAThumb） */
+.scrollbar::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); /* BÓNG THEO DÕI THANH CUỘN */
+    /*border-radius: 10px; /* GÓC TRÒN */
+    background-color: #000; /* NỀN */
+}
+/* 滚动条里面的滑块 */
+.scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 15px; /* 滚动条滑块圆角 */
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3); /* 滚动条滑块阴影 */
+    background-color: #000; /* 滚动条滑块颜色 */
+}
+  *:not(input, checkbox, textarea) {
+            /*禁止文本选择*/
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+
+
+</style>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+if(typeof $ == 'undefined') alert("Ark");
+    
+//页面显示完毕事件
+$(document).ready(function(){
+    /*禁止文本选择和拖动*/
+    document.body.onselectstart = document.body.ondrag =function(){
+        return true;
+    }
+    //文本框等输入完毕后页面自动滚动到顶部
+    $("input").blur(function(){
+        window.scroll(0,0);
+    });
+    
+    //激活webkit的button:active
+    document.body.addEventListener('touchstart', function () {});
+    
+    
+    //Đặt khu vực có thể kéo thành một khu vực hình tròn
+    setWindowDrag(50, 00, 70, 70);
+    
+    if(typeof h5gg != 'undefined')
+    {
+        //Điều chỉnh vị trí và kích thước của cửa sổ nổi và hiển thị nó ở giữa toàn màn hình
+        var w=350;var h=380;
+        
+      
+        var layout = function()
+        {
+            //window.orientation là hướng giữ thiết bị, không phải hướng hiển thị màn hình
+            if(window.lastorientation==window.orientation) return;
+            window.lastorientation=window.orientation;
+            
+            //Chiều rộng và chiều cao trong window.screen sẽ không được cập nhật khi xoay màn hình (nó sẽ chỉ được sửa trong quá trình khởi tạo)
+            if(Math.abs(window.orientation)==90) {
+                //横屏
+                var x=(window.screen.height - w)/1;
+                var y=(window.screen.width - h)/0;
+                setWindowRect(x, y, w, h);
+            } else {
+                //竖屏
+                var x=(window.screen.width - w)/2;
+                var y=(window.screen.height - h)/2;
+                setWindowRect(x, y, w, h);
+            }
+        }
+        
+        layout(); //Tự động điều chỉnh bố cục và canvas khi xoay màn hình
+        window.addEventListener("orientationchange", layout, false);
+      
+    }
+});
+         
+
+
+
+</script>
+
+    
 </head>
 <body>
+  
 
-<canvas id="ESPcanvas"></canvas>
+  
+    
+    
 
-<div id="Mainmenu">
- <div id="TitleBar"><span id="Title"></span></div>
-<div id="TabBar">
-<span class="TabButton" onclick="changeTab('1')">Basic</span>
-<span class="TabButton" onclick="changeTab('2')">Support</span>
-<span class="TabButton" onclick="changeTab('3')">Math</span>
-<span class="TabButton" onclick="changeTab('4')">Info</span>
-<span class="TabButton" onclick="changeTab('5')">Soon</span>
-</div>
+  <script>
 
-<div class="Tab" id=Tab_1><div class="Scroll">
+function checkboxclick(input)
+{
+    alert("チェックボックス = "+input.parentElement.innerText+" = "+input.checked);
+}
+    function Speedf(input)
+{
+if (typeof addr84 === 'undefined'){
+        h5gg.clearResults();
+        h5gg.searchNumber('-980', 'F32', '0x00000000', '0x400000000');
+        h5gg.searchNearby('0.0005', 'F32', '0x164');
+        h5gg.searchNumber('-980', 'F32', '0x00000000', '0x400000000');
+h5gg.getResults('100','0', 'F32');
 
-<label>
-<input type="checkbox" onclick="GlobalSpeed(this)">
-<span class="checkmark"></span>
-<span>Speedv1</span>
-</label>
-<input type="range" class="Slider" min="1" max="10" step="0.100" value="3.100"/>
-<span class="SliderValue">3.100</span>
-<br>
-<label>
-<input type="checkbox" onclick="WalkSpeed(this)">
-<span class="checkmark"></span>
-<span>Player Speed</span>
-</label>
-<input type="range" class="Slider" min="1" max="10" step="0.100" value="1.900"/>
-<span class="SliderValue">1.900</span>
-</div></div>
+count89 = h5gg.getResultsCount();
+r89 = h5gg.getResults(count89);
+  
+for (var i = 0; i < count89; i++) {
+  addr89 = r89[i].address;
+addr84=addr89 - -0x154
+  h5gg.setValue(addr84,input.value*1,'F32');
+  ;
 
-<div class="Tab" id=Tab_2><span><label>
-<input type="checkbox" onclick="InfFly(this)">
-<span class="checkmark"></span>
-<span>Infly</span>
-</label>
-<label>
-<input type="checkbox" onclick="HiddenClouds(this)">
-<span class="checkmark"></span>
-<span>Delete Clouds</span>
-</label></span></div>
-<div class="Tab" id=Tab_3><span>1.Bình Phương Của 1 Tổng:( A + B )^2= A^2 + 2AB + B^2
-<br>
-2.Bình Phương Của 1 Hiệu:( A - B )^2= A^2 - 2AB + B^2
-<br>
-3.Hiệu 2 Bình Phương: A^2 – B^2 = ( A – B )( A + B )
-<br>
-4.Lập Phương Của 1 Tổng:(A + B)^3 = A^3 + 3A^2B + 3AB^2 + B^3
-<br>
-5.Lập Phương Của 1 Hiệu:( A – B )^3 = A3 – 3A^2B + 3AB^2 – B^3.
-<br>
-6.Tổng Hai Lập Phương :A^3 + B^3 = ( A + B )( A^2 – AB + B^2 ).
-<br>
-7.Hiệu Hai Lập Phương :A^3 – B^3 = ( A – B )( A^2 + AB + B^2 ).
-<br>
- 7 Hằng Đẳng Thức Đáng Nhớ
-<br>
-Make By Bùi Biên😂
-</span></div>
-<div class="Tab" id=Tab_4><span>  <input type="button" value="DISCORD"style=height:28px  onclick="jr()"> 
-                                  <input type="button" value="DISCORD"style=height:28px  onclick="jr1()"></div>
-<div class="Tab" id=Tab_5><span>🥺</span></div>
 
-</div>
+h5gg.clearResults()
+}}
+else{
 
-<script>
+  
 
-//
-var sWidth = 0
-var sHeight = 0
+  h5gg.setValue(addr84,input.value*1,'F32');
+}}
+function MySpeedf(inputa) {
+                        if (typeof addr3 === 'undefined') {
+                            h5gg.clearResults();
+                            h5gg.searchNumber("-2373.004", 'F32', '0x00000000', '0x200000000');
+                            h5gg.searchNearby("1", 'F32', '0x100');
+                            h5gg.searchNumber("1", 'F32', '0x00000000', '0x200000000');
+                            h5gg.getResults('100', 'F32');
+                            count3 = h5gg.getResultsCount();
+                            r3 = h5gg.getResults(count3);
+                            for (var i = 0; i < count3; i++) {
+                                addr3 = r3[i].address;
+                                h5gg.setValue(addr3, inputa.value * 1, 'F32');
+                                h5gg.clearResults()
+                            }
+                        }
+                        else {
+                          
+                            h5gg.setValue(addr3, inputa.value * 1, 'F32');
+                        }
+                    }
 
-var TitleBar = document.querySelector("#TitleBar");
-var Mainmenu = document.querySelector("#Mainmenu");
-var MainmenuRect = Mainmenu.getBoundingClientRect();
-var TouchMoveOffset = {};
-var TouchMovePos = {};
-var Slider = document.getElementsByClassName("Slider");
-var SliderValue = document.getElementsByClassName("SliderValue");
+function Fov(input) {
+                        if (typeof addr8 === 'undefined') {
+                            h5gg.clearResults();
+                            h5gg.searchNumber("256", 'F32', '0x00000000', '0x200000000');
+                            h5gg.searchNearby("4", 'I32', '0x20');
+                            h5gg.searchNearby('0.8', 'F32', '0x20');
+                            h5gg.searchNumber("256", 'F32', '0x00000000', '0x200000000');
+                            h5gg.getResults('100', 'F32');
+                            count8 = h5gg.getResultsCount();
+                            r8 = h5gg.getResults(count8);
+                            for (var i = 0; i < count8; i++) {
+                                addr8 = r8[i].address;
+                                h5gg.setValue(addr8, input.value * 256, 'F32');
+                                h5gg.clearResults()
+                            }
+                        }
+                        else {
+                            h5gg.setValue(addr8, input.value * 256, 'F32');
+                        }
+                    };
 
+
+function Fov2(inputq) { 
+  
+   if (typeof addr77 === 'undefined') {
+  h5gg.clearResults();
+                            h5gg.searchNumber("89.9", 'F32', '0x00000000', '0x200000000');
+                            h5gg.searchNearby("90", 'F32', '0x100');
+                            
+                            h5gg.searchNumber("90", 'F32', '0x00000000', '0x200000000');
+                            h5gg.getResults('100', 'F32');
+                            count1991 = h5gg.getResultsCount();
+                            r1991 = h5gg.getResults(count1991);
+                            for (var i = 0; i < count1991; i++) {
+                                addr77 = r1991[i].address;
+                              h5gg.setValue(addr77, inputq.value, 'F32');
+  h5gg.clearResults()
+                            }
+                     }
+                      else{
+           
+                            
+                        
+                                h5gg.setValue(addr77, inputq.value, 'F32');
+                                
+                            }
+      
+                     };
+
+function Fps(inputq) {
+if (typeof addr12 === 'undefined') {
+  h5gg.clearResults();
+ 
+h5gg.searchNumber("-1.70142e+38", 'F32', '0x00000000', '0x400000000');
+h5gg.searchNearby("4.243991582918676e-314", 'F64', '0x100');
+h5gg.searchNearby("30", 'F32', '0x20');
+h5gg.searchNumber("30", 'F32', '0x00000000', '0x200000000');
+h5gg.editAll('60', 'F32');  
+                            
+                count12 = h5gg.getResultsCount();
+                            r12 = h5gg.getResults(count12);
+                            for (var i = 0; i < count12; i++) {
+                                addr12 = r12[i].address;
+                              h5gg.setValue(addr12, inputq.value, 'F32');
+  h5gg.clearResults()
+                            }
+                     }
+                      else{
+           
+                            
+                        
+                                h5gg.setValue(addr12, inputq.value, 'F32');
+                                
+                            }
+      
+                     };
+
+   
+      function gama(inputq) {
+       h5gg.clearResults();
+       h5gg.searchNumber('17.99', 'F32', '0x00000000', '0x200000000');
+       h5gg.searchNearby('0.34', 'F32', '0x100');
+       h5gg.searchNearby('0.4', 'F32', '0x100');
+       h5gg.searchNearby('0.4', 'F32', '0x100');
+       h5gg.editAll('0.34', 'F32');
+       h5gg.editAll('8', 'F32');
+     
+
+
+
+
+}
+
+function f48(input)
+      
+
+{
+
+if (typeof addr48 === 'undefined'){
+        h5gg.clearResults();
+        h5gg.searchNumber('1.952236128142591e-312', 'F64', '0x00000000', '0x200000000');
+        h5gg.searchNearby('-90', 'F32', '0x100');
+        h5gg.searchNearby('0.985', 'F32', '0x100');
+        h5gg.searchNumber('0.985', 'F32', '0x00000000', '0x200000000');
+h5gg.getResults('100','0', 'F32');
+
+count48 = h5gg.getResultsCount();
+        r48 = h5gg.getResults(count48);
+for (var i = 0; i < count48; i++) {
+          addr48 = r48[i].address;
+h5gg.setValue(addr48,input.value *1, 'F32');
+h5gg.clearResults()
+}}
+else{
+  for (var i = 0; i < count48; i++) {addr48 = r48[i].address;
+  h5gg.setValue(addr48,input.value *1, 'F32');
+}}}
 
 </script>
 
-<script>
-
-//
-let layout = function(){
- setWindowDrag(0, 0, 0, 0);
- if(window.lastorientation==window.orientation) return;
- window.lastorientation=window.orientation;
- if (Math.abs(window.orientation) == 90) {
-  sWidth = window.screen.height;
-  sHeight = window.screen.width;
-  setWindowRect(0,0,sWidth,sHeight);
- } else {
-  sWidth = window.screen.width;
-  sHeight = window.screen.height;
-  setWindowRect(0,0,sWidth,sHeight);
- }
-}
-
-layout();
-window.addEventListener("orientationchange", layout, false);
-
-//
-setButtonAction(function () {
- if (Mainmenu.style.display == 'none') {
-  Mainmenu.style.display = 'block';
-  setWindowTouch(true);
- } else {
-  Mainmenu.style.display = 'none';
-  setWindowTouch(false);
- }
-});
-
-</script>
 
 <script>
+ function anniu97() {
+            h5gg.clearResults();
+            h5gg.searchNumber('2.575036587209649e-314', 'F64', '0x00000000', '0x200000000');
+            h5gg.editAll('2.716841317300385e-314', 'F64');
+        
 
-//
 
-TitleBar.addEventListener("touchstart", Touchstart, false);
-TitleBar.addEventListener("touchmove", Movestart, false);
 
-function Touchstart(e) {
- TouchMoveOffset = {
-  X: e.pageX - Mainmenu.offsetLeft,
-  Y: e.pageY - Mainmenu.offsetTop
- }
-}
-
-function Movestart(e) {
- TouchMovePos = {
-  X: e.pageY - TouchMoveOffset.Y,
-  Y: e.pageX - TouchMoveOffset.X
- }
- if (TouchMovePos.X < 0) TouchMovePos.X = 0;
- if (TouchMovePos.Y < 0) TouchMovePos.Y = 0;
- if (TouchMovePos.X > sHeight - Mainmenu.clientHeight) TouchMovePos.X = sHeight - Mainmenu.clientHeight;
- if (TouchMovePos.Y > sWidth - Mainmenu.clientWidth) TouchMovePos.Y = sWidth - Mainmenu.clientWidth;
- Mainmenu.style.top = TouchMovePos.X + "px";
- Mainmenu.style.left = TouchMovePos.Y + "px";
-}
-
-</script>
-
-<script>
-
-//
-window.onload = loadFinished;
-function loadFinished(){
-//setButtonImage("");
-TitleBar.innerText = SetTitleInfo()
-}
-
-function SetTitleInfo(){
- var AllModules = h5gg.getRangesList();
- var AppModuleName = AllModules[0].name;
- var AppName = AppModuleName.substr(AppModuleName.lastIndexOf("/") + 1)
- var Time = new Date();
- Time = {
-  year: Time.getFullYear(),
-  month: ('0' + (Time.getMonth() + 1)).slice(-2),
-  date: ('0' + Time.getDate()).slice(-2),
- };
- return AppName+" Ngày "+Time.date+" Tháng "+Time.month+" Năm "+Time.year;
-}
-
-</script>
-
-<script>
-
-//
-TabButton = document.getElementsByClassName("TabButton");
-function changeTab(e){
-  var elements = document.getElementsByClassName('Tab');
-  for (var i = 0; i < elements.length; i++) {
-    elements[i].style.display = "none";
-  }
- document.querySelector("#Tab_"+e).style.display = "inline";
-}
-
-//
-for (let i = 0; i < TabButton.length; i++) {
-  TabButton[i].addEventListener("click", function () {
-   for (let i = 0; i < TabButton.length; i++) {
-    TabButton[i].style.backgroundColor = "rgba(200,200,200,0.6)";
    }
-   TabButton[i].style.backgroundColor = "rgba(200,200,200,0.6)";
-  }, false);
+
+function dungeonVision() {
+  h5gg.clearResults();
+  h5gg.searchNumber("7.292903900800989e-304", "F64", "0x100000000", "0x160000000");
+  h5gg.searchNearby("0.85", "F32", "0x10");
+  h5gg.editAll("30", "F32");
+  h5gg.clearResults();
+
+ 
 }
 
-changeTab("1");
-TabButton[0].style.backgroundColor = "rgba(255,255,255,0.7)";
+function waterVision() {
+  h5gg.clearResults();
+  h5gg.searchNumber("-8.538039785799280e+24", "F64", "0x100000000", "0x160000000");
+  h5gg.searchNearby("1", "I32", "0x100");
+  h5gg.searchNearby("1", "F32", "0x4");
+  h5gg.editAll("12", "I32");
+  h5gg.clearResults();
 
-</script>
 
-<script>
 
-//レンジスライダー関連
-for (let i = 0; i < Slider.length; i++) {
- Slider[i].addEventListener("input", function () {
-  SliderValue[i].innerText = Number(Slider[i].value).toFixed(3);
- }, false);
+
 }
 
-</script>
+function shootunderwater()  {
+  h5gg.searchNumber('56623104', 'I32', '0x000000000', '0x200000000');
+  h5gg.searchNearby('6', 'F32', '0x100');
+  h5gg.searchNearby('1', 'F32', '0x100');
+  h5gg.editAll('999', 'F32');
+  h5gg.clearResults();
 
 
 
-<script>
-
-var BaseAddr = Number(h5gg.getRangesList(0)[0].start);
-var Addr = {
- GlobalSpeed: readLong(BaseAddr + 0x1666380) + 0x1d0,
- WalkSpeed: BaseAddr + 0x16A1910,
- InfFly: BaseAddr + 0x166516C,
- HiddenClouds: BaseAddr + 0x1665168
-};
-
-//0x16A1E50 羽上昇
-//0x1666380 -> 0x1d0 全体加速
-
-function GlobalSpeed(e){
- if(e.checked){
-  ChangeGlobalSpeed = setInterval(function (){
-   h5gg.setValue(Addr.GlobalSpeed,Number(Slider[0].value), 'F32');
-  }, 1000/60);
- }else{
- clearInterval(ChangeGlobalSpeed);
- h5gg.setValue(Addr.GlobalSpeed,"1", 'F32');
- }
-}
-
-function WalkSpeed(e){
- if(e.checked){
-  ChangeWalkSpeed = setInterval(function (){
-   h5gg.setValue(Addr.WalkSpeed,Number(Slider[1].value) * 3.5, 'F32');
-  }, 1000/60);
- }else{
- clearInterval(ChangeWalkSpeed);
- h5gg.setValue(Addr.WalkSpeed,"3.5", 'F32');
- }
-}
-
-function InfFly(e){
- if(e.checked){
- h5gg.setValue(Addr.InfFly,"2.6", 'F32');
- }else{
- h5gg.setValue(Addr.InfFly,"2.5", 'F32');
- }
-}
-
-function HiddenClouds(e){
- if(e.checked){
- h5gg.setValue(Addr.HiddenClouds,"0", 'I8');
- }else{
- h5gg.setValue(Addr.HiddenClouds,"1", 'I8');
- }
-}
-
-function readLong(addr) {
- return Number(h5gg.getValue(addr, "I64"));
-}
-  function jr1(){
-alert('cvv')
   }
-   function jr(){
-alert('cvvvvv')
-  }
+
+          
+      function nb666() {
+ 
+
+ 	h5gg.clearResults();
+	h5gg.searchNumber('1088784512', 'I32', '0x00000000', '0x200000000');
+	h5gg.searchNearby('12', 'I32', '0x8');
+	h5gg.searchNumber('1088784512', 'I32', '0x00000000', '0x400000000');
+	count = h5gg.getResultsCount();
+	a = h5gg.getResults(count);
+	for (var i = 0; i < count; i++) {//ここで自分の位置を出力する
+		addr = a[i].address;
+		addr2 = addr - -0x4C
+		addrplx3 = "0x" + addr2.toString(16)
+		plxva2 = h5gg.getValue(addrplx3, "F32") //x座標
+		if ((plxva2 != 1.14794e-41)
+			&& (plxva2 != 1.4013e-45)
+			&& (plxva2 != 0)
+			&& (plxva2 <= 342300)
+			&& (plxva2 >= -342300)) {
+			addrplx2 = addrplx3 - -0x0
+			addrplx1 = "0x" + addrplx2.toString(16)
+			addrply2 = addrplx3 - -0x4
+			addrply1 = "0x" + addrply2.toString(16)
+			addrplz2 = addrplx3 - -0x8
+			addrplz1 = "0x" + addrplz2.toString(16)
+			plxva = h5gg.getValue(addrplx1, "F32") //x座標
+			plyva = h5gg.getValue(addrply1, "F32") //y座標
+			plzva = h5gg.getValue(addrplz1, "F32") //z座
+
+
+}
+   
+   }
+
+	
+
+
+
+				
+				h5gg.clearResults();
+				h5gg.searchNumber('1074020928', 'I32', '0x00000000', '0x400000000');
+				h5gg.searchNearby("1", 'F32', '0x50');
+				h5gg.searchNumber("1", 'F32', '0x00000000', '0x400000000');
+				h5gg.editAll("30", 'F32');
+				h5gg.clearResults();
+				h5gg.searchNumber('-2052', 'F32', '0x00000000', '0x400000000');
+				h5gg.searchNearby("1", 'F32', '0x50');
+				h5gg.searchNumber("1", 'F32', '0x00000000', '0x400000000');
+             h5gg.editAll("30", 'F32');
+			
+   			h5gg.clearResults();
+			h5gg.searchNumber('66014', 'I32', '0x00000000', '0x400000000'); 
+			h5gg.searchNearby('2097152', 'I32', '0x300');
+			h5gg.setFloatTolerance('400');
+			plxva = h5gg.getValue(addrplx1, "F32");
+			plyva = h5gg.getValue(addrply1, "F32");
+			plzva = h5gg.getValue(addrplz1, "F32");
+			h5gg.searchNearby(plxva, 'F32', '0x300');
+			h5gg.searchNearby(plyva, 'F32', '0x20');
+			h5gg.searchNumber(plxva, 'F32', '0x00000000', '0x400000000');
+			count1 = h5gg.getResultsCount();
+			b = h5gg.getResults(count1);
+			for (var i = 0; i < count1; i++) {//ロケ砲座標保存 x,y,z
+              
+			rtaddrx1 = b[i].address;
+			rtaddry2 = rtaddrx1 - -0x4;
+			rtaddry1 = "0x" + rtaddry2.toString(16);
+			rtaddrz2 = rtaddrx1 - -0x8;
+			rtaddrz1 = "0x" + rtaddrz2.toString(16);
+			
+			
+              
+              
+            }
+alert("Ark3");
+}
+
+ 
+ 
+
+ 
+
+function f10(){
+if (typeof addr21 === 'undefined') {
+              h5gg.clearResults();
+              h5gg.searchNumber('-0.98875373602', 'F32', '0x100000000', '0x160000000');
+              h5gg.searchNearby('-6.874347686909405e-41', 'F64', '0x8');
+              h5gg.searchNumber('-6.874347686909405e-41', 'F64', '0x100000000', '0x160000000');
+              h5gg.getResults("-6.874346696665740e-41", "F64");
+              count21 = h5gg.getResultsCount();
+              r21 = h5gg.getResults(count21);
+              for (var i = 0; i < count21; i++) {
+                  addr21 = r21[i].address;
+                  h5gg.setValue(addr21, -6.874346696665740e-41, 'F64');
+                  h5gg.clearResults()
+                  Flags4 = 1
+              }
+          }
+
+          else {
+
+              var test;
+              if (typeof Flags4 === 'undefined') {
+                  for (var i = 0; i < count21; i++) {
+                      addr21 = r21[i].address;
+                      h5gg.setValue(addr21, -6.874346696665740e-41, 'F64');
+                      Flags4 = 1
+                  }
+              } else {
+                  for (var i = 0; i < count21; i++) {
+                      addr21 = r21[i].address;
+                      h5gg.setValue(addr21, -6.874347686909405e-41, 'F32');
+                      Flags4 = undefined
+                  }
+              }
+          }
+      }
+
+function f9(){
+if (typeof addr20 === 'undefined') {
+              
+              h5gg.clearResults();
+              h5gg.searchNumber('-5.140667156606297e-315', 'F64', '0x100000000', '0x160000000');
+              h5gg.getResults("7.186329346908974e+45", "F64");
+              count20 = h5gg.getResultsCount();
+              r20 = h5gg.getResults(count20);
+              for (var i = 0; i < count20; i++) {
+                  addr20 = r20[i].address;
+                  h5gg.setValue(addr20, 7.186329346908974e+45, 'F64');
+                  h5gg.clearResults()
+                  Flags3 = 1
+              }
+          }
+
+          else {
+
+              var test;
+              if (typeof Flags3 === 'undefined') {
+                  for (var i = 0; i < count20; i++) {
+                      addr20 = r20[i].address;
+                      h5gg.setValue(addr20, 7.186329346908974e+45, 'F64');
+                      Flags3 = 1
+                  }
+              } else {
+                  for (var i = 0; i < count20; i++) {
+                      addr20 = r20[i].address;
+                      h5gg.setValue(addr20, -5.140667156606297e-315, 'F64');
+                      Flags3 = undefined
+                  }
+              }
+          }
+      }
+
+function f47(input)
+      
+
+{
+
+if (typeof addr47 === 'undefined'){
+        h5gg.clearResults();
+        h5gg.searchNumber('3232863993', 'I32', '0x00000000', '0x200000000');
+        h5gg.searchNearby('1', 'F32', '0x48');
+        h5gg.searchNumber('1', 'F32', '0x00000000', '0x200000000');
+h5gg.getResults('100','0', 'F32');
+
+count47 = h5gg.getResultsCount();
+        r47 = h5gg.getResults(count47);
+for (var i = 0; i < count47; i++) {
+          addr47 = r47[i].address;
+h5gg.setValue(addr47,input.value /5, 'F32');
+h5gg.clearResults()
+}}
+else{
+  for (var i = 0; i < count47; i++) {addr47 = r47[i].address;
+  h5gg.setValue(addr47,input.value /5, 'F32');
+}}}
+
+
+function f48(input)
+      
+
+{
+
+if (typeof addr48 === 'undefined'){
+        h5gg.clearResults();
+        h5gg.searchNumber('1.952236128142591e-312', 'F64', '0x00000000', '0x200000000');
+        h5gg.searchNearby('-90', 'F32', '0x100');
+        h5gg.searchNearby('0.985', 'F32', '0x100');
+        h5gg.searchNumber('0.985', 'F32', '0x00000000', '0x200000000');
+h5gg.getResults('100','0', 'F32');
+
+count48 = h5gg.getResultsCount();
+        r48 = h5gg.getResults(count48);
+for (var i = 0; i < count48; i++) {
+          addr48 = r48[i].address;
+h5gg.setValue(addr48,input.value *1, 'F32');
+h5gg.clearResults()
+}}
+else{
+  for (var i = 0; i < count48; i++) {addr48 = r48[i].address;
+  h5gg.setValue(addr48,input.value *1, 'F32');
+}}}
+
+
+function f49(input)
+      
+
+{
+
+if (typeof addr49 === 'undefined'){
+        h5gg.clearResults();
+        h5gg.searchNumber('1.994676043971778e-312', 'F64', '0x00000000', '0x200000000');
+        h5gg.searchNearby('-90', 'F32', '0x100');
+        h5gg.searchNearby('1', 'F32', '0x100');
+        h5gg.searchNumber('1', 'F32', '0x00000000', '0x200000000');
+h5gg.getResults('100','0', 'F32');
+
+count49 = h5gg.getResultsCount();
+        r49 = h5gg.getResults(count49);
+for (var i = 0; i < count49; i++) {
+          addr49 = r49[i].address;
+h5gg.setValue(addr49,input.value *1, 'F32');
+h5gg.clearResults()
+}}
+else{
+  for (var i = 0; i < count49; i++) {addr49 = r49[i].address;
+  h5gg.setValue(addr49,input.value *1, 'F32');
+}}}
+
+</script>
+<div id="content-view">
+<div id="title-text">Ark</div>
+<div class="scrollbar" style="max-height:300px"> <br>
+<details type=“menu”>
+<summary>Basic</summary>
+<br>
+<span style=color:transparent;>€€€</span>        <input type="range"  id="slider9" min="1" max="6"style="width:65%"  step="0.001" value="1"
+       onchange="Speedf(this)"/>Speed<br><br>
+ <span style=color:transparent;>€€€</span>   <input type="range" class="switch"id="slider6" min="1" max="6" style="width:65%" step="0.001" value="1"
+                       onchange="MySpeedf(this)" />LocalSpeed
+                 <br> <br>
+ <span style=color:transparent;>€€€</span>   <input type="range" id="slider7" min="1" max="90" style="width:65%" step="0.001" value="1"
+                       onchange="Fov(this)" />Fov<br><br>
+ <span style=color:transparent;>€€€</span>   <input type="range" id="slider8" min="1" max="150" style="width:65%" step="0.0001" value="1"
+                       onchange="Fov2(this)" />Fov2<br><br>
+
+ <span style=color:transparent;>€€€</span>   <input type="range" id="slider4" min="1" max="60" style="width:65%" step="0.0001" value="25"
+                       onchange="Fps(this)" />Fps<br><br>
+
+ <span style=color:transparent;>€€€</span>   <input type="range" id="slider1" min="1" max="120" style="width:65%" step="0.0001" value="1"
+                       onchange="gama(this)" />Gama<br><br>
+         <input type="button" value=" XOÁ CỎ " style=height:28px onclick="anniu97()">
+<input type="button" value=" DUNGEON VISION " style=height:28px onclick=" dungeonVision()">
+<input type="button" value=" WATER VISION " style=height:28px onclick=" waterVision()"><input type="button" value="SHOOT UNDERWATER" style=height:28px onclick=" shootunderwater()">
+</details>
+
+<br>
+<details type=“menu”>
+<summary>Aimbot</summary>
+<br>
+
+     <label>BIGHEAD<input class="switch-btn switch-btn animbg"type="checkbox"onclick="dat3(this)"></label>
+        <label>ANTENA<input class="switch-btn switch-btn animbg"type="checkbox"onclick="f10(this)"></label>
+
+ <label>ANTENA<input class="switch-btn switch-btn animbg"type="checkbox"onclick="f9(this)"></label>
+
+<label>Spam<input class="switch-btn switch-btn animbg"type="checkbox"onclick="nb666(this)"></label>
+
+<p>Head :<span id="numvalue7">1</span></p>
+<input type="range" id="slider7" min="1" max="30" step="0.1" value="1"
+onchange="f47(this)" style="width:100%" />
+
+<p>Bodyv1:<span id="numvalue8">1</span></p>
+<input type="range" id="slider8" min="1" max="8" step="0.1" value="1"
+onchange="f48(this)" style="width:100%" />
+
+<p>Bodyv2 :<span id="numvalue9">1</span></p>
+<input type="range" id="slider9" min="1" max="10" step="0.1" value="1"
+onchange="f49(this)" style="width:100%" />
+
+  
+<script>
+  
+
+function dat3(e){
+
+
+
+  
+if(e.checked==true){
+
+   
+    h5gg.clearResults();
+    h5gg.searchNumber('3232863993', 'I32', '0x100000000', '0x160000000'); 
+    h5gg.searchNearby('1', 'F32', '0x10'); 
+    h5gg.searchNumber('1','F32','0x100000000', '0x160000000');
+   h5gg.getResults('100','0','F32');
+  count7 = h5gg.getResultsCount();
+var dat=prompt("SIZE ĐẦU");
+     r7=h5gg.getResults(count7);
+     for (var i =0; i<count7;i++){addr7 = r7[i].address;
+    
+ 
+    h5gg.setValue(addr7,dat, 'F32');}
+ 
+h5gg.clearResults();
+
+    
+  }else{
+for (var i =0; i<count7;i++){addr7 = r7[i].address;
+    
+ 
+    
+                             
+      
+    h5gg.setValue(addr7,'1', 'F32');}
+				
+
+}}
+
+						
+
+    
+    
+    
+
+
+
+
+        
+
 </script>
 
 
+</script>
+<br>
+
+</script>
+<br>
+SNIPE SPEED
+<input type="range" id="slider9" min="0.001" max="1" style="width:100%" step="0.001" value="1"
+                       onchange="SNIPESPEED(this)" />
+       <script>   
+function SNIPESPEED(inputq) {
+if (typeof addr31 === 'undefined') {
+  h5gg.clearResults();
+                            h5gg.searchNumber("-2.5625", 'F32', '0x00000000', '0x200000000');
+                            h5gg.searchNearby("0.3", 'F32', '0x100');
+                            h5gg.getResults('1', 'F32');
+                            count31 = h5gg.getResultsCount();
+                            r31 = h5gg.getResults(count31);
+                            for (var i = 0; i < count31; i++) {
+                                addr31 = r31[i].address;
+                              h5gg.setValue(addr31, inputq.value, 'F32');
+  h5gg.clearResults()
+                            }
+                     }
+                      else{
+           
+                            
+                        
+                                h5gg.setValue(addr31, inputq.value, 'F32');
+                                
+                            }
+      
+                     };
+</script>
+SIMPLE PISTOL SPEED
+
+                <input type="range" id="slider9" min="0.001" max="1"style="width:100%"  step="0.001" value="1"
+onchange="PISTOLSPEED(this)"/>
+
+            <script>
+function PISTOLSPEED(inputq) {
+if (typeof addr21 === 'undefined') {
+  h5gg.clearResults();
+h5gg.searchNumber("-2.5625", 'F32', '0x00000000', '0x200000000');
+                      h5gg.searchNearby("0.475", 'F32', '0x100');
+h5gg.searchNumber("0.475", 'F32', '0x00000000', '0x200000000');
+                            h5gg.getResults('0.001','1','F32');
+                            count21 = h5gg.getResultsCount();
+                            r21 = h5gg.getResults(count21);
+                            for (var i = 0; i < count21; i++) {
+                                addr21 = r21[i].address;
+                              h5gg.setValue(addr21, inputq.value, 'F32');
+  h5gg.clearResults()
+                            }
+                     }
+                      else{
+           
+                            
+                        
+                                h5gg.setValue(addr21, inputq.value, 'F32');
+                                
+                            }
+      
+                     };
+</script>
+ENEMY HETGHT
+
+                <input type="range" id="slider9" min="1" max="200"style="width:100%"  step="0.001" value="1"
+onchange="enemyheight(this)"/>
+
+            <script>
+function enemyheight(inputq) {
+if (typeof addr49 === 'undefined') {
+  h5gg.clearResults();
+h5gg.searchNumber("-88.02314", 'F32', '0x00000000', '0x200000000');
+h5gg.searchNearby("-88.02314", "F32", "0x490");
+h5gg.searchNumber("-88.02314", 'F32', '0x00000000', '0x200000000');
+                            h5gg.getResults('1', 'F32');
+                            count49 = h5gg.getResultsCount();
+                            r49 = h5gg.getResults(count49);
+                            for (var i = 0; i < count49; i++) {
+                                addr49 = r49[i].address;
+                              h5gg.setValue(addr49, inputq.value, 'F32');
+  h5gg.clearResults()
+                            }
+                     }
+                      else{
+           
+                            
+                        
+                                h5gg.setValue(addr49, inputq.value, 'F32');
+                                
+                            }
+      
+                     };
+</script>
+
+  
+ 
+                               
+</div>
+</div>
+</div>
 </body>
-</html>
+
+
+
+
