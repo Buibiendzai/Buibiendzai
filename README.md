@@ -10,3 +10,5 @@ https://www.mediafire.com/file/735mwr2zb2v059o/rosa+forte.zip/file?fbclid=IwAR3S
 
 https://drive.google.com/file/d/1OWazIKhO8YYusVD8A_jld8Bt0Ljw0yO7/view?usp=drive_link
 https://www.mediafire.com/file/037xlont1rxipgd/vn.button.vip_1.103.1_iphoneos-arm64_%25281%2529.deb/file
+
+https://www.mediafire.com/file/n7wkvj24mrbikpg/Deb+hack+map+rootfull+chấp+tố+táo.deb.zip/file
